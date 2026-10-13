@@ -25,6 +25,11 @@ body {
   font-family: "Inter", sans-serif;
   background: #f4f4f4;
   color: var(--text);
+  background-image:url(assets/images/NguyenThiThuyDuong_251230832/background-2.jpg);
+}
+.menu{
+  color:#db1b1b;
+  display:inline-block;
 }
 
 img {
@@ -74,7 +79,7 @@ button {
   height: 54px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #fff;
+  border: 3px solid;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 

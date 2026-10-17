@@ -1,39 +1,254 @@
-.auth-main { min-height: calc(100vh - 84px); display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
-.auth-visual { min-height: calc(100vh - 84px); grid-column: 1; grid-row: 1; display: flex; align-items: end; padding: clamp(35px, 6vw, 78px); color: white; background: linear-gradient(0deg, rgba(44,17,11,.76), rgba(44,17,11,.08)), url("../../assets/images/NguyenThiThuyDuong_251230832/background-3.jpg") center/cover; }
-.auth-visual div { max-width: 620px; }
-.auth-visual .eyebrow { color: var(--yellow); }
-.auth-visual h1 { margin: 9px 0 15px; font: 800 clamp(2.7rem, 5vw, 5.2rem)/.96 "Baloo 2", sans-serif; }
-.auth-visual p { max-width: 520px; line-height: 1.75; }
-.auth-panel { min-height: calc(100vh - 84px); grid-column: 2; grid-row: 1; display: grid; place-items: center; padding: 24px; background: var(--cream); }
-.auth-card { width: min(620px, 100%); padding: clamp(22px, 3vw, 34px); border-radius: 26px; background: white; box-shadow: var(--shadow); }
-.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 16px; padding: 4px; border-radius: 13px; background: #f4eee9; }
-.auth-tabs button { padding: 11px; border: 0; border-radius: 10px; background: transparent; font-weight: 800; }
-.auth-tabs button { transition: color .25s ease, background .25s ease, box-shadow .25s ease, transform .25s ease; }
-.auth-tabs button.active { background: white; color: var(--red); box-shadow: 0 4px 14px rgba(0,0,0,.07); transform: translateY(-1px); }
-.auth-card h2 { margin: 14px 0 14px; font: 800 2rem/1 "Baloo 2", sans-serif; }
-.auth-card small { display: block; color: var(--muted); line-height: 1.5; }
-.auth-feedback { min-height: 20px; margin: 13px 0 0; color: #14733c; font-size: .86rem; font-weight: 700; }
-.auth-feedback.error { color: var(--red); }
-.auth-form-stage { position: relative; height: 330px; overflow: hidden; transition: height .35s ease; }
-.auth-form-stage.register-active { height: 500px; }
-.auth-form { position: absolute; inset: 0 0 auto; width: 100%; opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(34px) scale(.985); transition: opacity .28s ease, transform .4s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .4s; }
-.auth-form.active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0) scale(1); transition-delay: .08s, 0s, 0s; }
-.register-form.active { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 14px; }
-.register-form h2, .register-form .form-message, .register-form button[type="submit"] { grid-column: 1 / -1; }
-.register-form .form-field { margin-bottom: 7px; }
-.register-form .form-field:nth-of-type(1) { order: 1; }
-.register-form .form-field:nth-of-type(3) { order: 2; }
-.register-form .form-field:nth-of-type(2) { order: 3; grid-column: 1 / -1; }
-.register-form .form-field:nth-of-type(4) { order: 4; }
-.register-form .form-field:nth-of-type(5) { order: 5; }
-.register-form .form-message { order: 6; margin: 2px 0; }
-.register-form button[type="submit"] { order: 7; }
-.register-form .form-field input { min-height: 44px; }
-.register-form .field-error { min-height: 15px; margin-top: 3px; }
-.form-message { min-height: 20px; color: var(--red); font-size: .88rem; }
-.form-message.success { color: #14733c; }
-.logout-button { width: 100%; margin-top: 12px; padding: 10px; border: 0; background: transparent; color: var(--red); font-weight: 700; }
-#account-view { text-align: center; }
-@media (max-width: 850px) { .auth-main { grid-template-columns: 1fr; overflow: visible; } .auth-visual, .auth-panel { min-height: 330px; grid-column: 1; grid-row: auto; transform: none !important; } .auth-panel { padding: 25px 15px; } }
-@media (max-width: 560px) { .register-form.active { display: block; } .register-form .form-field { margin-bottom: 12px; } }
-@media (prefers-reduced-motion: reduce) { .auth-form-stage { transition: none; } .auth-form, .auth-tabs button { transition: none; animation: none !important; } }
+.auth-main {
+    min-height: calc(100vh - 84px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+.auth-visual {
+    min-height: calc(100vh - 84px);
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: end;
+    padding: clamp(35px, 6vw, 78px);
+    color: white;
+    background: linear-gradient(0deg, rgba(44, 17, 11, .76), rgba(44, 17, 11, .08)), url("../../assets/images/NguyenThiThuyDuong_251230832/background-3.jpg") center/cover;
+}
+
+.auth-visual div {
+    max-width: 620px;
+}
+
+.auth-visual .eyebrow {
+    color: var(--yellow);
+}
+
+.auth-visual h1 {
+    margin: 9px 0 15px;
+    font: 800 clamp(2.7rem, 5vw, 5.2rem)/.96 "Baloo 2", sans-serif;
+}
+
+.auth-visual p {
+    max-width: 520px;
+    line-height: 1.75;
+}
+
+.auth-panel {
+    min-height: calc(100vh - 84px);
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: var(--cream);
+}
+
+.auth-card {
+    width: min(620px, 100%);
+    padding: clamp(22px, 3vw, 34px);
+    border-radius: 26px;
+    background: white;
+    box-shadow: var(--shadow);
+}
+
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 16px;
+    padding: 4px;
+    border-radius: 13px;
+    background: #f4eee9;
+}
+
+.auth-tabs button {
+    padding: 11px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    font-weight: 800;
+}
+
+.auth-tabs button {
+    transition: color .25s ease, background .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.auth-tabs button.active {
+    background: white;
+    color: var(--red);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .07);
+    transform: translateY(-1px);
+}
+
+.auth-card h2 {
+    margin: 14px 0 14px;
+    font: 800 2rem/1 "Baloo 2", sans-serif;
+}
+
+.auth-card small {
+    display: block;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.auth-feedback {
+    min-height: 20px;
+    margin: 13px 0 0;
+    color: #14733c;
+    font-size: .86rem;
+    font-weight: 700;
+}
+
+.auth-feedback.error {
+    color: var(--red);
+}
+
+.auth-form-stage {
+    position: relative;
+    height: 330px;
+    overflow: hidden;
+    transition: height .35s ease;
+}
+
+.auth-form-stage.register-active {
+    height: 500px;
+}
+
+.auth-form {
+    position: absolute;
+    inset: 0 0 auto;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(34px) scale(.985);
+    transition: opacity .28s ease, transform .4s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .4s;
+}
+
+.auth-form.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0) scale(1);
+    transition-delay: .08s, 0s, 0s;
+}
+
+.register-form.active {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 14px;
+}
+
+.register-form h2,
+.register-form .form-message,
+.register-form button[type="submit"] {
+    grid-column: 1 / -1;
+}
+
+.register-form .form-field {
+    margin-bottom: 7px;
+}
+
+.register-form .form-field:nth-of-type(1) {
+    order: 1;
+}
+
+.register-form .form-field:nth-of-type(3) {
+    order: 2;
+}
+
+.register-form .form-field:nth-of-type(2) {
+    order: 3;
+    grid-column: 1 / -1;
+}
+
+.register-form .form-field:nth-of-type(4) {
+    order: 4;
+}
+
+.register-form .form-field:nth-of-type(5) {
+    order: 5;
+}
+
+.register-form .form-message {
+    order: 6;
+    margin: 2px 0;
+}
+
+.register-form button[type="submit"] {
+    order: 7;
+}
+
+.register-form .form-field input {
+    min-height: 44px;
+}
+
+.register-form .field-error {
+    min-height: 15px;
+    margin-top: 3px;
+}
+
+.form-message {
+    min-height: 20px;
+    color: var(--red);
+    font-size: .88rem;
+}
+
+.form-message.success {
+    color: #14733c;
+}
+
+.logout-button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    border: 0;
+    background: transparent;
+    color: var(--red);
+    font-weight: 700;
+}
+
+#account-view {
+    text-align: center;
+}
+
+@media (max-width: 850px) {
+    .auth-main {
+        grid-template-columns: 1fr;
+        overflow: visible;
+    }
+
+    .auth-visual,
+    .auth-panel {
+        min-height: 330px;
+        grid-column: 1;
+        grid-row: auto;
+        transform: none !important;
+    }
+
+    .auth-panel {
+        padding: 25px 15px;
+    }
+}
+
+@media (max-width: 560px) {
+    .register-form.active {
+        display: block;
+    }
+
+    .register-form .form-field {
+        margin-bottom: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .auth-form-stage {
+        transition: none;
+    }
+
+    .auth-form,
+    .auth-tabs button {
+        transition: none;
+        animation: none !important;
+    }
+}

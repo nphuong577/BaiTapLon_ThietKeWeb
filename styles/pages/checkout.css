@@ -1,39 +1,268 @@
-.checkout-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr); gap: 28px; align-items: start; }
-.checkout-form, .order-summary { padding: clamp(22px, 4vw, 36px); border: 1px solid var(--line); border-radius: 24px; background: white; box-shadow: 0 10px 30px rgba(70,45,28,.07); }
-.checkout-form h2, .order-summary h2 { margin: 0 0 20px; font: 800 1.8rem "Baloo 2", sans-serif; }
-.checkout-form .notice { margin-bottom: 20px; }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.payment-options { margin: 10px 0 16px; padding: 0; border: 0; }
-.payment-options legend { padding: 0 7px; font-weight: 800; }
-.payment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-top: 10px; }
-.payment-card { position: relative; display: flex; align-items: center; gap: 11px; padding: 15px; border: 1px solid var(--line); border-radius: 14px; background: white; cursor: pointer; transition: border-color .2s, background .2s; }
-.payment-card.selected { border-color: var(--red); background: #fff1f3; }
-.payment-card input { position: absolute; top: 12px; right: 12px; accent-color: var(--red); }
-.payment-icon { width: 42px; height: 42px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; background: var(--cream); font-size: 1.2rem; }
-.payment-card strong, .payment-card small { display: block; padding-right: 12px; }
-.payment-card strong { margin-bottom: 4px; font-size: .86rem; }
-.payment-card small { color: var(--muted); font-size: .72rem; line-height: 1.4; }
-.bank-transfer { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 20px; padding: 17px; border: 1px dashed var(--red); border-radius: 14px; background: #fff8e8; }
-.bank-transfer[hidden] { display: none; }
-.bank-transfer div { padding: 8px; border-radius: 9px; background: white; }
-.bank-transfer span, .bank-transfer strong { display: block; }
-.bank-transfer span { margin-bottom: 3px; color: var(--muted); font-size: .7rem; }
-.bank-transfer strong { font-size: .84rem; }
-.bank-transfer p { grid-column: 1 / -1; margin: 3px 0 0; color: var(--red); font-size: .72rem; }
-.form-message { min-height: 20px; color: var(--red); }
-.order-summary { position: sticky; top: 105px; }
-.summary-heading, .price-line { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.summary-heading a { color: var(--red); font-size: .85rem; font-weight: 800; }
-.order-summary .cart-items { max-height: 430px; }
-.price-line { padding: 11px 0; border-top: 1px solid var(--line); color: var(--muted); }
-.discount-line span:last-child { color: #14733c; font-weight: 800; }
-.discount-message { margin: -2px 0 10px; padding: 9px 11px; border-radius: 9px; background: #eff9f2; color: #14733c; font-size: .75rem; line-height: 1.45; }
-.discount-message:empty { display: none; }
-.grand-total { color: var(--ink); font-size: 1.15rem; }
-.grand-total strong:last-child { color: var(--red); }
-.order-summary > small { display: block; margin-top: 10px; color: var(--muted); }
-.order-success { max-width: 650px; margin: 40px auto; padding: 55px 25px; border-radius: 25px; background: white; box-shadow: var(--shadow); text-align: center; }
-.order-success > span { width: 70px; height: 70px; display: grid; place-items: center; margin: auto; border-radius: 50%; background: #daf5e3; color: #14733c; font-size: 2rem; }
-.order-success h2 { font: 800 2.4rem "Baloo 2", sans-serif; }
-@media (max-width: 850px) { .checkout-layout { grid-template-columns: 1fr; } .order-summary { position: static; grid-row: 1; } }
-@media (max-width: 560px) { .field-row, .payment-grid, .bank-transfer { grid-template-columns: 1fr; gap: 0; } .payment-grid { gap: 9px; } .bank-transfer p { grid-column: 1; } }
+.checkout-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.checkout-form,
+.order-summary {
+    padding: clamp(22px, 4vw, 36px);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(70, 45, 28, .07);
+}
+
+.checkout-form h2,
+.order-summary h2 {
+    margin: 0 0 20px;
+    font: 800 1.8rem "Baloo 2", sans-serif;
+}
+
+.checkout-form .notice {
+    margin-bottom: 20px;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.payment-options {
+    margin: 10px 0 16px;
+    padding: 0;
+    border: 0;
+}
+
+.payment-options legend {
+    padding: 0 7px;
+    font-weight: 800;
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+    margin-top: 10px;
+}
+
+.payment-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 15px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: white;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+}
+
+.payment-card.selected {
+    border-color: var(--red);
+    background: #fff1f3;
+}
+
+.payment-card input {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    accent-color: var(--red);
+}
+
+.payment-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--cream);
+    font-size: 1.2rem;
+}
+
+.payment-card strong,
+.payment-card small {
+    display: block;
+    padding-right: 12px;
+}
+
+.payment-card strong {
+    margin-bottom: 4px;
+    font-size: .86rem;
+}
+
+.payment-card small {
+    color: var(--muted);
+    font-size: .72rem;
+    line-height: 1.4;
+}
+
+.bank-transfer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 0 0 20px;
+    padding: 17px;
+    border: 1px dashed var(--red);
+    border-radius: 14px;
+    background: #fff8e8;
+}
+
+.bank-transfer[hidden] {
+    display: none;
+}
+
+.bank-transfer div {
+    padding: 8px;
+    border-radius: 9px;
+    background: white;
+}
+
+.bank-transfer span,
+.bank-transfer strong {
+    display: block;
+}
+
+.bank-transfer span {
+    margin-bottom: 3px;
+    color: var(--muted);
+    font-size: .7rem;
+}
+
+.bank-transfer strong {
+    font-size: .84rem;
+}
+
+.bank-transfer p {
+    grid-column: 1 / -1;
+    margin: 3px 0 0;
+    color: var(--red);
+    font-size: .72rem;
+}
+
+.form-message {
+    min-height: 20px;
+    color: var(--red);
+}
+
+.order-summary {
+    position: sticky;
+    top: 105px;
+}
+
+.summary-heading,
+.price-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.summary-heading a {
+    color: var(--red);
+    font-size: .85rem;
+    font-weight: 800;
+}
+
+.order-summary .cart-items {
+    max-height: 430px;
+}
+
+.price-line {
+    padding: 11px 0;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+}
+
+.discount-line span:last-child {
+    color: #14733c;
+    font-weight: 800;
+}
+
+.discount-message {
+    margin: -2px 0 10px;
+    padding: 9px 11px;
+    border-radius: 9px;
+    background: #eff9f2;
+    color: #14733c;
+    font-size: .75rem;
+    line-height: 1.45;
+}
+
+.discount-message:empty {
+    display: none;
+}
+
+.grand-total {
+    color: var(--ink);
+    font-size: 1.15rem;
+}
+
+.grand-total strong:last-child {
+    color: var(--red);
+}
+
+.order-summary>small {
+    display: block;
+    margin-top: 10px;
+    color: var(--muted);
+}
+
+.order-success {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 55px 25px;
+    border-radius: 25px;
+    background: white;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.order-success>span {
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    margin: auto;
+    border-radius: 50%;
+    background: #daf5e3;
+    color: #14733c;
+    font-size: 2rem;
+}
+
+.order-success h2 {
+    font: 800 2.4rem "Baloo 2", sans-serif;
+}
+
+@media (max-width: 850px) {
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .field-row,
+    .payment-grid,
+    .bank-transfer {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .payment-grid {
+        gap: 9px;
+    }
+
+    .bank-transfer p {
+        grid-column: 1;
+    }
+}

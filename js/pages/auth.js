@@ -133,9 +133,7 @@ loginForm.addEventListener("submit", (event) => {
   }
 
   storage.setSession({ userId: user.id, name: user.name, email: user.email, phone: user.phone });
-  showToast("Đăng nhập thành công");
-  if (location.search.includes("next=checkout")) location.href = "checkout.html";
-  else showAccount();
+  location.href = "../index.html";
 });
 
 document.querySelector("#logout-button").addEventListener("click", () => {

@@ -2,7 +2,6 @@
     min-height: calc(100vh - 84px);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    overflow: hidden;
 }
 
 .auth-visual {
@@ -105,13 +104,6 @@
 
 .auth-form-stage {
     position: relative;
-    height: 330px;
-    overflow: hidden;
-    transition: height .35s ease;
-}
-
-.auth-form-stage.register-active {
-    height: 500px;
 }
 
 .auth-form {
@@ -126,6 +118,8 @@
 }
 
 .auth-form.active {
+    position: relative;
+    inset: auto;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -242,10 +236,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .auth-form-stage {
-        transition: none;
-    }
-
     .auth-form,
     .auth-tabs button {
         transition: none;

@@ -1,0 +1,13 @@
+:root {
+  --red: #e31837;
+  --red-dark: #b80f29;
+  --yellow: #ffc72c;
+  --cream: #fff8e8;
+  --peach: #ffe4d7;
+  --ink: #211c18;
+  --muted: #6f6259;
+  --white: #fff;
+  --line: #eadfd6;
+  --shadow: 0 16px 40px rgba(82, 43, 19, .12);
+  --radius: 22px;
+}

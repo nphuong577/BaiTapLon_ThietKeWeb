@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đặt hàng | FARMY</title><link rel="icon" href="../assets/images/BuiThiNgocPhuong_251230944/header_image/page_logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/base/variables.css" /><link rel="stylesheet" href="../styles/base/global.css" /><link rel="stylesheet" href="../styles/components/header.css" /><link rel="stylesheet" href="../styles/components/cart.css" /><link rel="stylesheet" href="../styles/pages/checkout.css" />
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="../index.html"><img src="../assets/images/BuiThiNgocPhuong_251230944/header_image/page_logo.png" alt="" /><span>FARMY<small>Giòn vui mỗi ngày</small></span></a><button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button><nav class="main-nav"><a href="../index.html">Trang chủ</a><a href="products.html">Sản phẩm</a><a href="../index.html#offers">Khuyến mãi</a><a href="../index.html#about">Về FARMY</a></nav><a class="account-link" href="auth.html">Tài khoản</a></header>
+    <main class="inner-main">
+      <div class="inner-container"><span class="eyebrow">Bước cuối</span><h1 class="page-title">Kiểm tra & đặt hàng</h1><p class="page-intro">Điền thông tin nhận hàng. Đơn này chỉ được lưu cục bộ để minh họa luồng đặt món.</p>
+        <div class="checkout-layout">
+          <form class="checkout-form" id="checkout-form" novalidate>
+            <h2>Thông tin giao hàng</h2><div id="login-suggestion" class="notice"></div>
+            <div class="field-row"><div class="form-field"><label for="customer-name">Họ và tên</label><input id="customer-name" name="name" autocomplete="name" /><p class="field-error" data-error-for="customer-name"></p></div><div class="form-field"><label for="customer-phone">Số điện thoại</label><input id="customer-phone" name="phone" inputmode="numeric" autocomplete="tel" /><p class="field-error" data-error-for="customer-phone"></p></div></div>
+            <div class="form-field"><label for="customer-email">Email nhận xác nhận</label><input id="customer-email" name="email" type="email" autocomplete="email" /><p class="field-error" data-error-for="customer-email"></p></div>
+            <div class="form-field"><label for="customer-address">Địa chỉ giao hàng</label><textarea id="customer-address" name="address" autocomplete="street-address" placeholder="Số nhà, đường, phường/xã, quận/huyện..."></textarea><p class="field-error" data-error-for="customer-address"></p></div>
+            <div class="form-field"><label for="delivery-time">Thời gian nhận</label><select id="delivery-time" name="deliveryTime"><option value="soon">Sớm nhất (khoảng 30-45 phút)</option><option value="60">Sau 60 phút</option><option value="90">Sau 90 phút</option></select></div>
+            <div class="form-field"><label for="order-note">Ghi chú</label><textarea id="order-note" name="note" placeholder="Ví dụ: không lấy tương ớt..."></textarea></div>
+            <fieldset class="payment-options"><legend>Phương thức thanh toán</legend><div class="payment-grid"><label class="payment-card"><input type="radio" name="payment" value="cod" checked /><span class="payment-icon">💵</span><span><strong>Thanh toán khi nhận hàng</strong><small>Trả tiền mặt khi món được giao đến.</small></span></label><label class="payment-card"><input type="radio" name="payment" value="bank-transfer" /><span class="payment-icon">🏦</span><span><strong>Chuyển khoản trước</strong><small>Chuyển khoản theo thông tin bên dưới.</small></span></label></div></fieldset>
+            <div class="bank-transfer" id="bank-transfer" hidden><div><span>Ngân hàng</span><strong>FARMY DEMO BANK</strong></div><div><span>Chủ tài khoản</span><strong>CONG TY FARMY</strong></div><div><span>Số tài khoản</span><strong>1234567890</strong></div><div><span>Nội dung</span><strong id="transfer-content">FARMY + SĐT</strong></div><p>Đây là thông tin mô phỏng, không thực hiện chuyển tiền thật.</p></div>
+            <p class="form-message" id="checkout-message" aria-live="polite"></p><button class="primary-button full-width" id="place-order" type="submit">Xác nhận đặt hàng</button>
+          </form>
+          <aside class="order-summary"><div class="summary-heading"><h2>Đơn của bạn</h2><a href="products.html">+ Thêm món</a></div><div id="checkout-items" class="cart-items"></div><div class="price-line"><span>Tạm tính</span><span id="checkout-subtotal">0 ₫</span></div><div class="price-line discount-line"><span>Giảm giá</span><span id="discount-amount">−0 ₫</span></div><div class="discount-message" id="discount-message"></div><div class="price-line"><span>Phí giao hàng</span><span id="delivery-fee">0 ₫</span></div><div class="price-line grand-total"><strong>Tổng cộng</strong><strong id="order-total">0 ₫</strong></div><small>Miễn phí giao hàng cho đơn từ 250.000 ₫.</small></aside>
+        </div>
+        <section class="order-success" id="order-success" hidden><span>✓</span><h2>Đặt hàng thành công!</h2><p>Mã đơn: <strong id="order-code"></strong>. Đơn demo đã được lưu trong trình duyệt.</p><a class="primary-button" href="../index.html">Về trang chủ</a></section>
+      </div>
+    </main>
+    <script type="module" src="../js/pages/checkout.js"></script>
+  </body>
+</html>

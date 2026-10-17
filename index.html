@@ -1,137 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="a.css">
-</head>
-<body>
-    <header>
-        <!--Logo và nút trang chủ-->
-        <div class="logo-area">
-            <img src="assets/images/BuiThiNgocPhuong_251230944/header_image/page_logo.png" alt="Logo">
-            <button>Trang chủ</button>
-        </div>
-
-        <!--Menu chính-->
-        <nav class="menu">
-            <a href="#">MENU</a>
-            <a href="#">KHUYẾN MÃI</a>
-            <a href="#">TIN TỨC</a>
-        </nav>
-
-        <!--Tìm kiếm và nút chức năng-->
-        <div class="user-actions">
-            <input type="text" placeholder="Tìm món ăn,combo...">
-            <button class="btn-cart">🛒 Giỏ hàng</button>
-            <button class="btn-login">Đăng nhập</button>
-        </div>
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="FARMY - Gà rán giòn vui, combo tiện lợi và giao hàng nhanh." />
+    <title>FARMY | Gà rán giòn vui</title>
+    <link rel="icon" href="assets/images/BuiThiNgocPhuong_251230944/header_image/page_logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/base/variables.css" />
+    <link rel="stylesheet" href="styles/base/global.css" />
+    <link rel="stylesheet" href="styles/components/header.css" />
+    <link rel="stylesheet" href="styles/components/product-card.css" />
+    <link rel="stylesheet" href="styles/components/cart.css" />
+    <link rel="stylesheet" href="styles/pages/home.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="FARMY - Trang chủ">
+        <img src="assets/images/BuiThiNgocPhuong_251230944/header_image/page_logo.png" alt="" />
+        <span>FARMY<small>Giòn vui mỗi ngày</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="index.html" aria-current="page">Trang chủ</a><a href="pages/products.html">Sản phẩm</a><a href="#offers">Khuyến mãi</a><a href="#about">Về FARMY</a>
+      </nav>
+      <div class="header-actions">
+        <a class="account-link" href="pages/auth.html">Tài khoản</a>
+        <button class="cart-button" id="open-cart" type="button" aria-label="Mở giỏ hàng">🛒 <span>Giỏ hàng</span><b class="cart-badge" data-cart-count>0</b></button>
+      </div>
     </header>
 
-    <main>
-        <section class="banner-slide">
-            <button class="slider-arrow left" type="button" aria-label="Ảnh trước">&lt;</button>
-          <div class="slide-wrapper">
-            <div class="slide-track">
-                <div class="slide">
-                    <img src="assets/images/MaiPhuongDung_251230824_banner-img/best1.png">
-                </div>
-                <div class="slide">
-                    <img src="assets/images/MaiPhuongDung_251230824_banner-img/best2.png">
-                </div>
-                <div class="slide">
-                    <img src="assets/images/MaiPhuongDung_251230824_banner-img/best3.png">
-                </div>
-                <div class="slide">
-                    <img src="assets/images/MaiPhuongDung_251230824_banner-img/best4.png">
-                </div>
-                <div class="slide">
-                    <img src="assets/images/MaiPhuongDung_251230824_banner-img/best5.png">
-                </div>
-            </div>
-          </div>
-            <div>
-                <div class="slide-nav">
-                    <a href="#best1"></a>
-                    <a href="#best2"></a>
-                    <a href="#best3"></a>
-                    <a href="#best4"></a>
-                    <a href="#best5"></a>
-                </div>
-            </div>
-
-            <button class="slider-arrow right" type="button" aria-label="Ảnh tiếp theo">&gt;</button>
-
-        </section>
-        <!-- 3. PHẦN CÁC TÍNH NĂNG / DỊCH VỤ -->
-        <section class="features">
-        <div class="feature-box">
-            <span>🚚</span>
-            <div>
-                <h4>Giao hàng nhanh</h4>
-                <p>Trong 30 phút</p>
-            </div>
+    <main id="main-content">
+      <section class="hero" aria-label="Ưu đãi nổi bật">
+        <div class="slider" id="hero-slider">
+          <div class="slider-track" id="slider-track"><div class="loading-card">Đang tải ưu đãi...</div></div>
+          <button class="slider-arrow prev" type="button" aria-label="Ảnh trước">‹</button>
+          <button class="slider-arrow next" type="button" aria-label="Ảnh tiếp theo">›</button>
+          <div class="slider-dots" id="slider-dots" aria-label="Chọn ảnh quảng cáo"></div>
         </div>
-        <div class="feature-box">
-            <span>✓</span>
-            <div>
-                <h4>Thực phẩm an toàn</h4>
-                <p>100% tươi sạch</p>
-            </div>
-        </div>
-        <div class="feature-box">
-            <span>✦</span>
-            <div>
-                <h4>Ưu đãi hấp dẫn</h4>
-                <p>Món ngon mỗi ngày</p>
-            </div>
-        </div>
-        <div class="feature-box">
-            <span>☎</span>
-            <div>
-                <h4>Hỗ trợ 24/7</h4>
-                <p>Luôn sẵn sàng</p>
-            </div>
-        </div>
-    </section>
+      </section>
 
-    <!-- 4. PHẦN DANH SÁCH MÓN ĂN (BEST SELLER) -->
-    <section class="products">
-        <h2>🔥 Best Seller - Món Ăn Nổi Bật</h2>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="assets/images/NguyenThiThuyDuong_251230832/fried-chicken.jpg" alt="Gà rán">
-                <h3>Gà rán giòn</h3>
-                <p>Gà rán tẩm ướp đậm đà, giòn rụm.</p>
-                <div class="card-bottom">
-                    <strong>69.000 đ</strong>
-                    <button>Đặt hàng</button>
-                </div>
-            </div>
+      <section class="service-strip" aria-label="Cam kết dịch vụ">
+        <article><span>🚚</span><div><strong>Giao nhanh</strong><small>Dự kiến từ 30 phút</small></div></article>
+        <article><span>✓</span><div><strong>Nguyên liệu chọn lọc</strong><small>Chế biến trong ngày</small></div></article>
+        <article><span>✦</span><div><strong>Ưu đãi hấp dẫn</strong><small>Combo tiết kiệm</small></div></article>
+        <article><span>☎</span><div><strong>Hỗ trợ tận tâm</strong><small>09:00 - 21:00</small></div></article>
+      </section>
 
-            <div class="product-card">
-                <img src="assets/images/NguyenThiThuyDuong_251230832/couple-combo.jpg" alt="Cơm gà">
-                <h3>Cặp đôi ăn ý</h3>
-                <p></p>
-                <div class="card-bottom">
-                    <strong>59.000 đ</strong>
-                    <button>Đặt hàng</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="assets/images/NguyenThiThuyDuong_251230832/spaghetti.jpg" alt="Mì ý">
-                <h3>Mì ý sốt bò bằm</h3>
-                <p>Sợi mì dai ngon hòa quyện cùng sốt bò.</p>
-                <div class="card-bottom">
-                    <strong>49.000 đ</strong>
-                    <button>Đặt hàng</button>
-                </div>
-            </div>
+      <section class="menu-section" id="featured-products">
+        <div class="section-heading">
+          <div><span class="eyebrow">Hương vị FARMY</span><h1>Khám phá món ngon</h1></div>
+          <p>Một vài gợi ý nổi bật từ mỗi nhóm món. Xem thực đơn để tìm kiếm, lọc và chọn đầy đủ sản phẩm.</p>
         </div>
-    </section>
-    <script src="script.js"></script>
-</body>
+        <div class="category-previews" id="category-previews"><div class="loading-card">Đang tải món nổi bật...</div></div>
+        <div class="center-action"><a class="primary-button" href="pages/products.html">Xem toàn bộ thực đơn →</a></div>
+      </section>
+
+      <section class="promotions-section" id="offers">
+        <div class="promotions-heading"><div><span class="eyebrow">Ưu đãi FARMY</span><h2>Khuyến mãi đang diễn ra</h2></div><div class="promotion-controls"><button id="promotion-prev" type="button" aria-label="Khuyến mãi trước">←</button><button id="promotion-next" type="button" aria-label="Khuyến mãi tiếp theo">→</button></div></div>
+        <div class="promotion-carousel" id="promotion-carousel"><div class="loading-card">Đang tải khuyến mãi...</div></div>
+        <div class="promotion-dots" id="promotion-dots" aria-label="Chọn khuyến mãi"></div>
+      </section>
+
+      <section class="about-section" id="about">
+        <img src="assets/images/NguyenThiThuyDuong_251230832/background-1.jpg" alt="Không gian bữa ăn ấm cúng" />
+        <div><span class="eyebrow">Câu chuyện FARMY</span><h2>Món ngon gắn kết mọi người</h2><p>FARMY là dự án website học tập về đặt đồ ăn nhanh. Chúng mình hướng đến trải nghiệm đơn giản: dễ chọn món, dễ tùy chỉnh và dễ kiểm tra đơn hàng.</p><a class="text-link" href="pages/products.html">Khám phá thực đơn →</a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><strong>FARMY</strong><p>Website bài tập lớn thiết kế web.</p></div>
+      <div><strong>Liên kết</strong><a href="pages/products.html">Sản phẩm</a><a href="pages/auth.html">Tài khoản</a><a href="pages/checkout.html">Thanh toán</a></div>
+      <div><strong>Giờ phục vụ</strong><p>09:00 - 21:00 mỗi ngày</p><p>Hotline demo: 1900 0000</p></div>
+    </footer>
+
+    <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Giỏ hàng" aria-hidden="true">
+      <div class="drawer-header"><div><span class="eyebrow">Đơn của bạn</span><h2>Giỏ hàng</h2></div><button class="icon-close" id="close-cart" type="button" aria-label="Đóng giỏ hàng">×</button></div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-summary"><span>Tạm tính</span><strong id="cart-subtotal">0 ₫</strong></div>
+      <a class="primary-button full-width" href="pages/checkout.html">Tiến hành đặt hàng</a>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="js/pages/home.js"></script>
+  </body>
 </html>

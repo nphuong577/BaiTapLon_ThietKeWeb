@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đăng nhập / Đăng ký | FARMY</title><link rel="icon" href="../assets/images/BuiThiNgocPhuong_251230944/header_image/page_logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/base/variables.css" /><link rel="stylesheet" href="../styles/base/global.css" /><link rel="stylesheet" href="../styles/components/header.css" /><link rel="stylesheet" href="../styles/pages/auth.css" />
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="../index.html"><img src="../assets/images/BuiThiNgocPhuong_251230944/header_image/page_logo.png" alt="" /><span>FARMY<small>Giòn vui mỗi ngày</small></span></a><button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button><nav class="main-nav"><a href="../index.html">Trang chủ</a><a href="products.html">Sản phẩm</a><a href="../index.html#offers">Khuyến mãi</a><a href="../index.html#about">Về FARMY</a></nav><a class="cart-button" href="checkout.html">🛒 Giỏ hàng <b class="cart-badge" data-cart-count>0</b></a></header>
+    <main class="auth-main">
+      <section class="auth-visual"><div><span class="eyebrow">Thành viên FARMY</span><h1 id="auth-visual-title">Đăng nhập để bữa ngon tiện hơn</h1><p id="auth-visual-copy">Lưu thông tin giao hàng và xem lại đơn đặt thử nghiệm trên trình duyệt này.</p></div></section>
+      <section class="auth-panel">
+        <div class="auth-card">
+          <div class="auth-tabs" role="tablist"><button class="active" type="button" role="tab" data-auth-tab="login">Đăng nhập</button><button type="button" role="tab" data-auth-tab="register">Đăng ký</button></div>
+          <p class="auth-feedback" id="auth-feedback" aria-live="polite"></p>
+          <div class="auth-form-stage" id="auth-form-stage">
+          <form id="login-form" class="auth-form active" data-auth-form="login" aria-hidden="false" novalidate>
+            <h2>Chào mừng trở lại!</h2>
+            <div class="form-field"><label for="login-email">Email</label><input id="login-email" name="email" type="email" autocomplete="email" placeholder="ban@example.com" /><p class="field-error" data-error-for="login-email"></p></div>
+            <div class="form-field"><label for="login-password">Mật khẩu</label><input id="login-password" name="password" type="password" autocomplete="current-password" /><p class="field-error" data-error-for="login-password"></p></div>
+            <p class="form-message" id="login-message" aria-live="polite"></p><button class="primary-button full-width" type="submit">Đăng nhập</button>
+          </form>
+          <form id="register-form" class="auth-form register-form" data-auth-form="register" aria-hidden="true" novalidate>
+            <h2>Tạo tài khoản mới</h2>
+            <div class="form-field"><label for="register-name">Họ và tên</label><input id="register-name" name="name" autocomplete="name" placeholder="Nguyễn Văn An" /><p class="field-error" data-error-for="register-name"></p></div>
+            <div class="form-field"><label for="register-email">Email</label><input id="register-email" name="email" type="email" autocomplete="email" placeholder="ban@example.com" /><p class="field-error" data-error-for="register-email"></p></div>
+            <div class="form-field"><label for="register-phone">Số điện thoại</label><input id="register-phone" name="phone" inputmode="numeric" autocomplete="tel" placeholder="0912345678" /><p class="field-error" data-error-for="register-phone"></p></div>
+            <div class="form-field"><label for="register-password">Mật khẩu</label><input id="register-password" name="password" type="password" autocomplete="new-password" aria-describedby="password-hint" /><small id="password-hint">Tối thiểu 8 ký tự, gồm chữ thường, chữ hoa, số và ký tự đặc biệt.</small><p class="field-error" data-error-for="register-password"></p></div>
+            <div class="form-field"><label for="register-confirm">Nhập lại mật khẩu</label><input id="register-confirm" name="confirm" type="password" autocomplete="new-password" /><p class="field-error" data-error-for="register-confirm"></p></div>
+            <p class="form-message" id="register-message" aria-live="polite"></p><button class="primary-button full-width" type="submit">Tạo tài khoản</button>
+          </form>
+          </div>
+          <div id="account-view" hidden><span class="eyebrow">Đã đăng nhập</span><h2 id="account-name"></h2><p id="account-email"></p><a class="primary-button full-width" href="checkout.html">Tiếp tục đặt hàng</a><button class="logout-button" id="logout-button" type="button">Đăng xuất</button></div>
+        </div>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="../js/pages/auth.js"></script>
+  </body>
+</html>

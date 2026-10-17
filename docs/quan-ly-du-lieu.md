@@ -103,10 +103,10 @@ Giải thích trường:
 - `tag`: nhãn trên ảnh sản phẩm.
 - `featured`: dữ liệu dự phòng để đánh dấu món nổi bật.
 - `options.size`: size và tiền cộng thêm.
-- `options.spice`: các mức cay.
+- `options.spice`: các mức cay; không dùng cho đồ uống và tráng miệng.
 - `options.drink`: thức uống và tiền cộng thêm.
 
-Mỗi nhóm `size`, `spice`, `drink` phải có ít nhất một lựa chọn. Nếu món không có độ cay, dùng `"spice": ["Không cay"]`. Nếu không có nước, tạo lựa chọn `none` với `extraPrice: 0`.
+Mỗi nhóm `size` và `drink` phải có ít nhất một lựa chọn. Chỉ khai báo `spice` cho danh mục khác đồ uống và tráng miệng; nếu món không cay, dùng `"spice": ["Không cay"]`. Nếu không có nước, tạo lựa chọn `none` với `extraPrice: 0`.
 
 ### Sửa sản phẩm
 

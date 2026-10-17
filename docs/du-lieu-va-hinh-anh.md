@@ -42,7 +42,7 @@ Khi thêm category, cần làm đủ hai bước: thêm `{ "id", "name" }` vào 
 }
 ```
 
-`price` và `extraPrice` phải là số, không viết dấu chấm phân cách. Mỗi sản phẩm phải có ít nhất một lựa chọn trong `size`, `spice` và `drink` để bộ tùy chỉnh hoạt động.
+`price` và `extraPrice` phải là số, không viết dấu chấm phân cách. Mỗi sản phẩm phải có ít nhất một lựa chọn trong `size` và `drink`. Chỉ các danh mục ngoài đồ uống và tráng miệng mới cần khai báo `spice`.
 
 ## Muốn thêm một sản phẩm cần viết những gì?
 
@@ -57,7 +57,7 @@ Khi thêm category, cần làm đủ hai bước: thêm `{ "id", "name" }` vào 
    - `tag`: nhãn như `Món mới`, `Bán chạy` hoặc `Yêu thích`.
    - `featured`: `true` hoặc `false`.
    - `options.size`: danh sách kích cỡ; mỗi lựa chọn có `id`, `name`, `extraPrice`.
-   - `options.spice`: danh sách độ cay dạng chuỗi.
+   - `options.spice`: danh sách độ cay dạng chuỗi; không khai báo cho đồ uống và tráng miệng.
    - `options.drink`: danh sách thức uống; mỗi lựa chọn có `id`, `name`, `extraPrice`.
 3. Đặt file ảnh vào `assets/images/`, sau đó kiểm tra đường dẫn `image` có mở được không.
 4. Kiểm tra dấu phẩy JSON: object trước sản phẩm mới phải có dấu phẩy, object cuối cùng không có dấu phẩy thừa.

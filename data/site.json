@@ -1,0 +1,28 @@
+{
+  "brand": {
+    "name": "FARMY",
+    "tagline": "Giòn vui mỗi ngày"
+  },
+  "banners": [
+    {
+      "image": "assets/images/MaiPhuongDung_251230824_banner-img/best1.png",
+      "alt": "Ưu đãi combo tại FARMY"
+    },
+    {
+      "image": "assets/images/MaiPhuongDung_251230824_banner-img/best2.png",
+      "alt": "Món ngon nổi bật tại FARMY"
+    },
+    {
+      "image": "assets/images/MaiPhuongDung_251230824_banner-img/best3.png",
+      "alt": "Thưởng thức gà rán FARMY"
+    },
+    {
+      "image": "assets/images/MaiPhuongDung_251230824_banner-img/best4.png",
+      "alt": "Khuyến mãi theo tuần tại FARMY"
+    },
+    {
+      "image": "assets/images/MaiPhuongDung_251230824_banner-img/best5.png",
+      "alt": "Đặt món nhanh cùng FARMY"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "rules": [
+    {
+      "id": "tier-150",
+      "minOrder": 150000,
+      "maxOrder": 249999,
+      "discountPercent": 5,
+      "maxDiscount": 15000
+    },
+    {
+      "id": "tier-250",
+      "minOrder": 250000,
+      "maxOrder": 399999,
+      "discountPercent": 10,
+      "maxDiscount": 30000
+    },
+    {
+      "id": "tier-400",
+      "minOrder": 400000,
+      "maxOrder": null,
+      "discountPercent": 15,
+      "maxDiscount": 60000
+    }
+  ]
+}

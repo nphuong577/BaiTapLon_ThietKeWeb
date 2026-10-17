@@ -1,0 +1,36 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "name": "Tất cả"
+    },
+    {
+      "id": "chicken",
+      "name": "Gà rán"
+    },
+    {
+      "id": "rice-noodle",
+      "name": "Cơm & Mì Ý"
+    },
+    {
+      "id": "burger",
+      "name": "Burger"
+    },
+    {
+      "id": "combo",
+      "name": "Combo"
+    },
+    {
+      "id": "side",
+      "name": "Món phụ"
+    },
+    {
+      "id": "dessert",
+      "name": "Tráng miệng"
+    },
+    {
+      "id": "drink",
+      "name": "Thức uống"
+    }
+  ]
+}

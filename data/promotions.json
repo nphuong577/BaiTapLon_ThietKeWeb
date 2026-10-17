@@ -1,0 +1,45 @@
+{
+  "autoplayMs": 5000,
+  "promotions": [
+    {
+      "id": "family-saving",
+      "label": "Combo gia đình",
+      "title": "Càng đông càng vui",
+      "description": "Combo gà rán, mì Ý và nước ngọt cho bữa ăn sum họp.",
+      "buttonText": "Xem combo",
+      "link": "pages/products.html?category=combo",
+      "image": "assets/images/NguyenThiThuyDuong_251230832/family-combo.jpg",
+      "theme": "yellow"
+    },
+    {
+      "id": "couple-date",
+      "label": "Ưu đãi cặp đôi",
+      "title": "Hai người, một bữa thật ngon",
+      "description": "Chọn combo cặp đôi tiện lợi với gà, mì, khoai và nước.",
+      "buttonText": "Chọn món ngay",
+      "link": "pages/product.html?id=couple-combo",
+      "image": "assets/images/NguyenThiThuyDuong_251230832/couple-combo.jpg",
+      "theme": "peach"
+    },
+    {
+      "id": "spicy-week",
+      "label": "Tuần lễ món cay",
+      "title": "Cay bùng vị, vui hết ý",
+      "description": "Khám phá gà sốt cay và combo mì cay dành cho tín đồ ăn cay.",
+      "buttonText": "Thử vị cay",
+      "link": "pages/product.html?id=spicy-chicken-combo",
+      "image": "assets/images/NguyenThiThuyDuong_251230832/spicy-chicken-combo.jpg",
+      "theme": "red"
+    },
+    {
+      "id": "dessert-time",
+      "label": "Tráng miệng",
+      "title": "Thêm chút ngọt ngào",
+      "description": "Kem mát lạnh giúp bữa ăn trọn vị hơn, chỉ từ 19.000 ₫.",
+      "buttonText": "Xem tráng miệng",
+      "link": "pages/products.html?category=dessert",
+      "image": "assets/images/NguyenThiThuyDuong_251230832/ice-cream-cup.jpg",
+      "theme": "cream"
+    }
+  ]
+}

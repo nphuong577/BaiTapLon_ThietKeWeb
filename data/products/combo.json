@@ -1,0 +1,204 @@
+{
+  "products": [
+    {
+      "id": "couple-combo",
+      "name": "Combo cặp đôi",
+      "category": "combo",
+      "price": 159000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/couple-combo.jpg",
+      "description": "2 miếng gà, 2 mì Ý, khoai tây chiên và 2 nước ngọt.",
+      "tag": "Combo",
+      "featured": false,
+      "options": {
+        "size": [
+          {
+            "id": "regular",
+            "name": "Tiêu chuẩn",
+            "extraPrice": 0
+          },
+          {
+            "id": "large",
+            "name": "Nâng cấp phần lớn",
+            "extraPrice": 25000
+          }
+        ],
+        "spice": [
+          "Không cay",
+          "Cay vừa"
+        ],
+        "drink": [
+          {
+            "id": "cola",
+            "name": "2 Cola vừa",
+            "extraPrice": 0
+          },
+          {
+            "id": "lemon",
+            "name": "2 Nước chanh",
+            "extraPrice": 10000
+          }
+        ]
+      }
+    },
+    {
+      "id": "single-combo",
+      "name": "Combo một người",
+      "category": "combo",
+      "price": 75000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/single-combo.jpg",
+      "description": "1 miếng gà, 1 mì Ý sốt cà chua và 1 ly nước.",
+      "tag": "Tiện lợi",
+      "featured": false,
+      "options": {
+        "size": [
+          {
+            "id": "regular",
+            "name": "Tiêu chuẩn",
+            "extraPrice": 0
+          },
+          {
+            "id": "large",
+            "name": "Nâng cấp mì lớn",
+            "extraPrice": 10000
+          }
+        ],
+        "spice": [
+          "Không cay",
+          "Cay vừa"
+        ],
+        "drink": [
+          {
+            "id": "cola",
+            "name": "Cola vừa",
+            "extraPrice": 0
+          },
+          {
+            "id": "lemon",
+            "name": "Nước chanh",
+            "extraPrice": 5000
+          }
+        ]
+      }
+    },
+    {
+      "id": "spicy-chicken-combo",
+      "name": "Combo gà mì cay",
+      "category": "combo",
+      "price": 85000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/spicy-chicken-combo.jpg",
+      "description": "Gà rán sốt cay, mì Ý cay vừa và nước ngọt.",
+      "tag": "Món mới",
+      "featured": false,
+      "options": {
+        "size": [
+          {
+            "id": "regular",
+            "name": "Tiêu chuẩn",
+            "extraPrice": 0
+          },
+          {
+            "id": "large",
+            "name": "Nâng cấp mì lớn",
+            "extraPrice": 10000
+          }
+        ],
+        "spice": [
+          "Cay vừa",
+          "Cay nhiều"
+        ],
+        "drink": [
+          {
+            "id": "cola",
+            "name": "Cola vừa",
+            "extraPrice": 0
+          },
+          {
+            "id": "lemon",
+            "name": "Nước chanh",
+            "extraPrice": 5000
+          }
+        ]
+      }
+    },
+    {
+      "id": "spicy-combo",
+      "name": "Combo cay cặp đôi",
+      "category": "combo",
+      "price": 169000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/spicy-combo.jpg",
+      "description": "2 mì Ý cay, 2 miếng gà, khoai chiên và 2 nước ngọt.",
+      "tag": "Yêu thích",
+      "featured": false,
+      "options": {
+        "size": [
+          {
+            "id": "regular",
+            "name": "Tiêu chuẩn",
+            "extraPrice": 0
+          },
+          {
+            "id": "large",
+            "name": "Nâng cấp phần lớn",
+            "extraPrice": 25000
+          }
+        ],
+        "spice": [
+          "Cay vừa",
+          "Cay nhiều"
+        ],
+        "drink": [
+          {
+            "id": "cola",
+            "name": "2 Cola vừa",
+            "extraPrice": 0
+          },
+          {
+            "id": "lemon",
+            "name": "2 Nước chanh",
+            "extraPrice": 10000
+          }
+        ]
+      }
+    },
+    {
+      "id": "family-combo",
+      "name": "Combo gia đình",
+      "category": "combo",
+      "price": 250000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/family-combo.jpg",
+      "description": "Phần ăn lớn gồm gà rán, mì Ý, khoai chiên và nước ngọt.",
+      "tag": "Gia đình",
+      "featured": false,
+      "options": {
+        "size": [
+          {
+            "id": "regular",
+            "name": "4 người",
+            "extraPrice": 0
+          },
+          {
+            "id": "large",
+            "name": "6 người",
+            "extraPrice": 90000
+          }
+        ],
+        "spice": [
+          "Không cay",
+          "Cay vừa"
+        ],
+        "drink": [
+          {
+            "id": "cola",
+            "name": "4 Cola vừa",
+            "extraPrice": 0
+          },
+          {
+            "id": "lemon",
+            "name": "4 Nước chanh",
+            "extraPrice": 20000
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "products": [
+    {
+      "id": "fried-chicken",
+      "name": "Gà rán giòn vui vẻ",
+      "category": "chicken",
+      "price": 69000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/fried-chicken.jpg",
+      "description": "Gà tẩm ướp đậm đà, vỏ giòn rụm và thịt mềm mọng.",
+      "tag": "Bán chạy",
+      "featured": true,
+      "options": {
+        "size": [
+          {
+            "id": "regular",
+            "name": "1 miếng",
+            "extraPrice": 0
+          },
+          {
+            "id": "large",
+            "name": "2 miếng",
+            "extraPrice": 33000
+          }
+        ],
+        "spice": [
+          "Không cay",
+          "Cay vừa",
+          "Cay nhiều"
+        ],
+        "drink": [
+          {
+            "id": "none",
+            "name": "Không chọn",
+            "extraPrice": 0
+          },
+          {
+            "id": "cola",
+            "name": "Cola vừa",
+            "extraPrice": 10000
+          },
+          {
+            "id": "lemon",
+            "name": "Nước chanh",
+            "extraPrice": 15000
+          }
+        ]
+      }
+    },
+    {
+      "id": "spicy-chicken",
+      "name": "Gà rán sốt cay",
+      "category": "chicken",
+      "price": 72000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/spicy-chicken.jpg",
+      "description": "Gà rán phủ sốt cay mặn ngọt, thơm nồng và đậm vị.",
+      "tag": "Món mới",
+      "featured": true,
+      "options": {
+        "size": [
+          {
+            "id": "regular",
+            "name": "1 miếng",
+            "extraPrice": 0
+          },
+          {
+            "id": "large",
+            "name": "2 miếng",
+            "extraPrice": 35000
+          }
+        ],
+        "spice": [
+          "Cay vừa",
+          "Cay nhiều"
+        ],
+        "drink": [
+          {
+            "id": "none",
+            "name": "Không chọn",
+            "extraPrice": 0
+          },
+          {
+            "id": "cola",
+            "name": "Cola vừa",
+            "extraPrice": 10000
+          }
+        ]
+      }
+    },
+    {
+      "id": "fried-chicken-pieces",
+      "name": "Gà rán phần lớn",
+      "category": "chicken",
+      "price": 159000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/fried-chicken-pieces.jpg",
+      "description": "Nhiều miếng gà vàng giòn cho nhóm bạn hoặc gia đình.",
+      "tag": "Nhóm bạn",
+      "featured": false,
+      "options": {
+        "size": [
+          {
+            "id": "regular",
+            "name": "4 miếng",
+            "extraPrice": 0
+          },
+          {
+            "id": "large",
+            "name": "6 miếng",
+            "extraPrice": 59000
+          }
+        ],
+        "spice": [
+          "Không cay",
+          "Cay vừa"
+        ],
+        "drink": [
+          {
+            "id": "none",
+            "name": "Không chọn",
+            "extraPrice": 0
+          },
+          {
+            "id": "cola",
+            "name": "2 Cola vừa",
+            "extraPrice": 18000
+          }
+        ]
+      }
+    }
+  ]
+}

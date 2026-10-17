@@ -31,7 +31,6 @@ function switchForm(mode, keepMessage) {
   registerForm.classList.toggle("active", isRegister);
   loginForm.setAttribute("aria-hidden", String(isRegister));
   registerForm.setAttribute("aria-hidden", String(!isRegister));
-  formStage.classList.toggle("register-active", isRegister);
 
   document.querySelectorAll("[data-auth-tab]").forEach((button) => {
     const isActive = button.dataset.authTab === mode;

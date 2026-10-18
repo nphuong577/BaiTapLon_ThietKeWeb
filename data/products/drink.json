@@ -3,12 +3,10 @@
     {
       "id": "iced-chocolate",
       "name": "Cacao sữa đá",
-      "category": "drink",
       "price": 30000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/iced-chocolate.jpg",
       "description": "Cacao thơm đậm, hòa quyện cùng sữa béo và đá mát lạnh.",
       "tag": "Thức uống",
-      "featured": false,
       "options": {
         "size": [
           {

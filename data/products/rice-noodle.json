@@ -3,12 +3,10 @@
     {
       "id": "chicken-rice",
       "name": "Cơm gà sốt",
-      "category": "rice-noodle",
       "price": 59000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/chicken-rice.jpg",
       "description": "Cơm dẻo thơm, gà mềm và sốt cà chua đậm đà.",
       "tag": "Yêu thích",
-      "featured": true,
       "options": {
         "size": [
           {
@@ -43,12 +41,10 @@
     {
       "id": "spaghetti",
       "name": "Mì Ý sốt bò bằm",
-      "category": "rice-noodle",
       "price": 49000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/spaghetti.jpg",
       "description": "Sợi mì dai ngon hòa quyện cùng sốt bò bằm chua ngọt.",
       "tag": "Bán chạy",
-      "featured": true,
       "options": {
         "size": [
           {
@@ -84,12 +80,10 @@
     {
       "id": "fried-chicken-rice",
       "name": "Cơm gà rán giòn",
-      "category": "rice-noodle",
       "price": 65000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/fried-chicken-rice.jpg",
       "description": "Cơm trắng dẻo thơm dùng kèm gà rán giòn và rau.",
       "tag": "Yêu thích",
-      "featured": false,
       "options": {
         "size": [
           {

@@ -3,12 +3,10 @@
     {
       "id": "fried-chicken",
       "name": "Gà rán giòn vui vẻ",
-      "category": "chicken",
       "price": 69000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/fried-chicken.jpg",
       "description": "Gà tẩm ướp đậm đà, vỏ giòn rụm và thịt mềm mọng.",
       "tag": "Bán chạy",
-      "featured": true,
       "options": {
         "size": [
           {
@@ -49,12 +47,10 @@
     {
       "id": "spicy-chicken",
       "name": "Gà rán sốt cay",
-      "category": "chicken",
       "price": 72000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/spicy-chicken.jpg",
       "description": "Gà rán phủ sốt cay mặn ngọt, thơm nồng và đậm vị.",
       "tag": "Món mới",
-      "featured": true,
       "options": {
         "size": [
           {
@@ -89,12 +85,10 @@
     {
       "id": "fried-chicken-pieces",
       "name": "Gà rán phần lớn",
-      "category": "chicken",
       "price": 159000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/fried-chicken-pieces.jpg",
       "description": "Nhiều miếng gà vàng giòn cho nhóm bạn hoặc gia đình.",
       "tag": "Nhóm bạn",
-      "featured": false,
       "options": {
         "size": [
           {

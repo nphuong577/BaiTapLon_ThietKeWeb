@@ -3,12 +3,10 @@
     {
       "id": "vanilla-ice-cream",
       "name": "Kem vani",
-      "category": "dessert",
       "price": 19000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/vanilla-ice-cream.jpg",
       "description": "Kem vani mát lạnh, ngọt dịu và thơm béo.",
       "tag": "Ngọt ngào",
-      "featured": false,
       "options": {
         "size": [
           {
@@ -34,12 +32,10 @@
     {
       "id": "chocolate-ice-cream",
       "name": "Kem ốc quế chocolate",
-      "category": "dessert",
       "price": 25000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/chocolate-ice-cream.jpg",
       "description": "Kem ốc quế mát lạnh phủ chocolate ngọt ngào.",
       "tag": "Món mới",
-      "featured": false,
       "options": {
         "size": [
           {
@@ -65,12 +61,10 @@
     {
       "id": "ice-cream-cup",
       "name": "Kem ly",
-      "category": "dessert",
       "price": 35000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/ice-cream-cup.jpg",
       "description": "Kem ly mát lạnh với topping giòn và sốt chocolate.",
       "tag": "Tráng miệng",
-      "featured": false,
       "options": {
         "size": [
           {

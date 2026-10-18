@@ -3,12 +3,10 @@
     {
       "id": "french-fries",
       "name": "Khoai tây chiên",
-      "category": "side",
       "price": 29000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/french-fries.jpg",
       "description": "Khoai tây chiên vàng giòn, dùng kèm sốt cà chua.",
       "tag": "Ăn vặt",
-      "featured": false,
       "options": {
         "size": [
           {

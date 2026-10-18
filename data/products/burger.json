@@ -3,12 +3,10 @@
     {
       "id": "chicken-burger",
       "name": "Burger gà giòn",
-      "category": "burger",
       "price": 79000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/chicken-burger.jpg",
       "description": "Burger nhân gà chiên giòn, rau tươi và sốt béo ngậy.",
       "tag": "Món ngon",
-      "featured": true,
       "options": {
         "size": [
           {
@@ -43,12 +41,10 @@
     {
       "id": "shrimp-burger",
       "name": "Burger tôm",
-      "category": "burger",
       "price": 65000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/shrimp-burger.jpg",
       "description": "Nhân tôm chiên giòn, rau tươi và sốt mayo béo nhẹ.",
       "tag": "Món mới",
-      "featured": false,
       "options": {
         "size": [
           {

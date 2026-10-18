@@ -21,15 +21,11 @@ export async function loadDiscountRules() {
 
 export async function loadCatalog() {
   const { categories } = await getJson("categories.json");
-  const productCategories = categories.filter((category) => category.id !== "all");
-  const products = [];
-
-  for (const category of productCategories) {
-    const data = await getJson(`products/${category.id}.json`);
-    products.push(...data.products);
-  }
-
-  return { categories, products };
+  const productFiles = categories
+    .filter((category) => category.id !== "all")
+    .map((category) => getJson(`products/${category.id}.json`));
+  const data = await Promise.all(productFiles);
+  return { categories, products: data.flatMap((file) => file.products) };
 }
 
 export async function findProduct(productId) {

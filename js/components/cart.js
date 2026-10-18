@@ -33,12 +33,9 @@ export function renderCart(container, subtotalElement, onChange) {
   const cart = storage.getCart();
   if (!container) return;
   container.innerHTML = cart.length ? cart.map((item) => {
-    const details = [item.sizeName, item.category === "drink" || item.category === "dessert" ? null : item.spice, item.drinkName]
-      .filter(Boolean)
-      .map(escapeHtml)
-      .join(" · ");
-    return `
-    <article class="cart-row">
+    const spice = ["drink", "dessert"].includes(item.category) ? null : item.spice;
+    const details = [item.sizeName, spice, item.drinkName].filter(Boolean).map(escapeHtml).join(" · ");
+    return `<article class="cart-row">
       <img src="${assetUrl(item.image)}" alt="" />
       <div><h3>${escapeHtml(item.name)}</h3><p>${details}</p><strong>${formatPrice(item.unitPrice)}</strong>
         <div class="cart-row-actions"><button type="button" data-cart-change="-1" data-key="${escapeHtml(item.key)}" aria-label="Giảm số lượng">−</button><span>${item.quantity}</span><button type="button" data-cart-change="1" data-key="${escapeHtml(item.key)}" aria-label="Tăng số lượng">+</button><button class="remove-item" type="button" data-cart-remove data-key="${escapeHtml(item.key)}">Xóa</button></div>
@@ -47,17 +44,13 @@ export function renderCart(container, subtotalElement, onChange) {
   }).join("") : '<div class="empty-state"><strong>Giỏ hàng đang trống.</strong><p>Hãy quay lại thực đơn để chọn món.</p></div>';
   if (subtotalElement) subtotalElement.textContent = formatPrice(cartSubtotal(cart));
 
-  container.querySelectorAll("[data-cart-change]").forEach((button) => button.addEventListener("click", () => {
-    updateQuantity(button.dataset.key, Number(button.dataset.cartChange));
+  container.querySelectorAll("[data-cart-change], [data-cart-remove]").forEach((button) => button.addEventListener("click", () => {
+    if (button.hasAttribute("data-cart-remove")) {
+      storage.setCart(storage.getCart().filter((item) => item.key !== button.dataset.key));
+    } else updateQuantity(button.dataset.key, Number(button.dataset.cartChange));
     renderCart(container, subtotalElement, onChange);
     updateCartBadges();
-    if (onChange) onChange();
-  }));
-  container.querySelectorAll("[data-cart-remove]").forEach((button) => button.addEventListener("click", () => {
-    storage.setCart(storage.getCart().filter((item) => item.key !== button.dataset.key));
-    renderCart(container, subtotalElement, onChange);
-    updateCartBadges();
-    if (onChange) onChange();
+    onChange?.();
   }));
 }
 

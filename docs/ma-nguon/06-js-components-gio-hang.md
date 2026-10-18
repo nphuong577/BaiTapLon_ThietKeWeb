@@ -72,7 +72,7 @@ Nếu không tìm thấy dòng thì không làm gì. Sau khi cộng/trừ, `.fil
 1. Đọc giỏ; nếu không có `container` thì dừng.
 2. Nếu có món, dùng `.map()` tạo một `<article>` cho mỗi dòng; nếu trống, hiện thông báo.
 3. Cập nhật tạm tính bằng `cartSubtotal()`.
-4. Gắn listener cho nút tăng/giảm/xóa; sau mỗi lần thay đổi, vẽ lại giỏ, cập nhật badge và gọi `onChange` nếu được truyền.
+4. Gắn cùng một listener cho các nút tăng/giảm/xóa; sau mỗi lần thay đổi, vẽ lại giỏ, cập nhật badge và gọi `onChange` nếu được truyền.
 
 Phần dựng các dòng và gắn sự kiện (rút gọn phần HTML cho dễ đọc):
 
@@ -110,21 +110,17 @@ export function renderCart(container, subtotalElement, onChange) {
     subtotalElement.textContent = formatPrice(cartSubtotal(cart));
   }
 
-  container.querySelectorAll("[data-cart-change]").forEach((button) =>
-    button.addEventListener("click", () => {
-      updateQuantity(button.dataset.key, Number(button.dataset.cartChange));
+  container.querySelectorAll("[data-cart-change], [data-cart-remove]")
+    .forEach((button) => button.addEventListener("click", () => {
+      if (button.hasAttribute("data-cart-remove")) {
+        storage.setCart(storage.getCart()
+          .filter((item) => item.key !== button.dataset.key));
+      } else {
+        updateQuantity(button.dataset.key, Number(button.dataset.cartChange));
+      }
       renderCart(container, subtotalElement, onChange);
       updateCartBadges();
-      if (onChange) onChange();
-    }));
-
-  container.querySelectorAll("[data-cart-remove]").forEach((button) =>
-    button.addEventListener("click", () => {
-      storage.setCart(storage.getCart()
-        .filter((item) => item.key !== button.dataset.key));
-      renderCart(container, subtotalElement, onChange);
-      updateCartBadges();
-      if (onChange) onChange();
+      onChange?.();
     }));
 }
 ```
@@ -133,6 +129,7 @@ export function renderCart(container, subtotalElement, onChange) {
 
 - `data-key` ghi mã dòng giỏ vào nút; nhờ đó handler biết cần sửa/xóa món nào.
 - `Number(button.dataset.cartChange)` chuyển `"-1"`/`"1"` từ HTML thành số.
+- Cả ba nút dùng chung một listener; listener kiểm tra nút xóa hay nút đổi số lượng rồi cập nhật giao diện.
 - Sau khi thay đổi, `renderCart()` tự gọi lại để cập nhật giao diện.
 - `onChange()` cho phép trang checkout tính lại phí/giảm giá/tổng sau khi giỏ thay đổi.
 - Nút xóa lọc giỏ để bỏ đúng `key`, không ảnh hưởng các lựa chọn khác của cùng món.

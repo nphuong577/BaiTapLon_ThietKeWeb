@@ -11,7 +11,7 @@
 | `loadCatalog()` | Không có → `{ categories, products }` | Thực đơn và trang chủ cần danh mục/món |
 | `findProduct(productId)` | Mã món → món tìm được hoặc `null` | Trang chi tiết cần lấy dữ liệu cho một mã món |
 
-`loadCatalog()` lấy từng file sản phẩm theo `category.id` (bỏ `all`) rồi ghép tất cả sản phẩm lại. Nếu thêm danh mục mới, cần thêm JSON đúng tên vào `data/products/`.
+`loadCatalog()` tải các file sản phẩm của từng `category.id` (bỏ `all`) song song rồi ghép sản phẩm lại theo thứ tự danh mục. Nếu thêm danh mục mới, cần thêm JSON đúng tên vào `data/products/`.
 
 
 ### 9.4. `js/core/data-loader.js`: tải JSON và gom catalog
@@ -58,23 +58,19 @@ Gom sản phẩm từ các file danh mục:
 ```js
 export async function loadCatalog() {
   const { categories } = await getJson("categories.json");
-  const productCategories = categories.filter((category) => category.id !== "all");
-  const products = [];
-
-  for (const category of productCategories) {
-    const data = await getJson(`products/${category.id}.json`);
-    products.push(...data.products);
-  }
-
-  return { categories, products };
+  const files = categories
+    .filter((category) => category.id !== "all")
+    .map((category) => getJson(`products/${category.id}.json`));
+  const data = await Promise.all(files);
+  return { categories, products: data.flatMap((file) => file.products) };
 }
 ```
 
 - `const { categories } = ...` lấy trường `categories` từ object JSON.
-- `.filter(...)` tạo danh sách mới, bỏ danh mục đặc biệt `all`.
-- `for ... of` lần lượt đi qua từng danh mục.
+- `.filter(...)` bỏ danh mục đặc biệt `all`; `.map(...)` tạo danh sách yêu cầu tải.
+- `Promise.all(...)` đợi các file tải song song; thứ tự kết quả vẫn theo danh sách danh mục.
 - Template string `` `products/${category.id}.json` `` tạo tên file, ví dụ `products/chicken.json`.
-- `products.push(...data.products)` ghép từng món vào danh sách chung. Dấu `...` trải các phần tử trong mảng, không đưa nguyên mảng thành một phần tử lồng.
+- `flatMap(...)` ghép danh sách món từ các file thành một mảng.
 - Kết quả trả về có cả danh sách danh mục lẫn toàn bộ món.
 
 Tìm một sản phẩm:
@@ -87,4 +83,3 @@ export async function findProduct(productId) {
 ```
 
 `.find(...)` trả món đầu tiên có `id` trùng. Nếu không có kết quả thì trả `null`; trang chi tiết dùng trường hợp này để hiện “Không tìm thấy món”. Cách hiện tại tải toàn catalog rồi mới tìm; với thực đơn rất lớn có thể cân nhắc API tìm theo mã hoặc file index riêng.
-

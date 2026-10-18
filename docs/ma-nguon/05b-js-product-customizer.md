@@ -5,7 +5,7 @@
 | Hàm | Đầu vào → kết quả | Tác dụng |
 |---|---|---|
 | `customizerMarkup(product, includeImage = true)` | Dữ liệu món và tùy chọn ảnh → HTML dạng chuỗi | Tạo phần chọn size, độ cay (nếu áp dụng), nước và số lượng |
-| `optionPill(group, value, label, checked)` | Tên nhóm, giá trị, chữ hiển thị, trạng thái chọn → HTML dạng chuỗi | Tạo một lựa chọn radio dùng chung |
+| `optionPill(group, value, label, checked, extraPrice = 0)` | Tên nhóm, giá trị, nhãn, trạng thái chọn và phụ phí tùy chọn → HTML dạng chuỗi | Tạo một lựa chọn radio dùng chung |
 | `bindCustomizer(root, product, onAdded)` | Vùng HTML, món, callback tùy chọn → không trả kết quả | Theo dõi lựa chọn, giới hạn số lượng 1–20, cập nhật tổng và thêm cấu hình món vào giỏ |
 
 Bên trong `bindCustomizer()`:
@@ -24,9 +24,7 @@ Tạo các lựa chọn từ JSON:
 export function customizerMarkup(product, includeImage = true) {
   const sizes = product.options.size
     .map((option, index) => optionPill(
-      "size", option.id,
-      `${option.name}${option.extraPrice ? ` (+${formatPrice(option.extraPrice)})` : ""}`,
-      index === 0
+      "size", option.id, option.name, index === 0, option.extraPrice
     )).join("");
 
   const supportsSpice = !["drink", "dessert"].includes(product.category);
@@ -36,9 +34,7 @@ export function customizerMarkup(product, includeImage = true) {
     : "";
   const drinks = product.options.drink
     .map((option, index) => optionPill(
-      "drink", option.id,
-      `${option.name}${option.extraPrice ? ` (+${formatPrice(option.extraPrice)})` : ""}`,
-      index === 0
+      "drink", option.id, option.name, index === 0, option.extraPrice
     )).join("");
   return `<div class="dialog-product">
     ${includeImage ? `<img src="${assetUrl(product.image)}"
@@ -88,15 +84,16 @@ export function customizerMarkup(product, includeImage = true) {
 Tạo một nút chọn dạng radio:
 
 ```js
-function optionPill(group, value, label, checked) {
+function optionPill(group, value, label, checked, extraPrice = 0) {
+  const price = extraPrice ? ` (+${formatPrice(extraPrice)})` : "";
   return `<label class="option-pill">
     <input type="radio" name="${group}" value="${escapeHtml(value)}" ${checked ? "checked" : ""} />
-    <span>${escapeHtml(label)}</span>
+    <span>${escapeHtml(label)}${price}</span>
   </label>`;
 }
 ```
 
-Radio cùng `name` tạo thành một nhóm chỉ chọn được một giá trị. `<label>` bọc input nên người dùng có thể bấm vào phần chữ. `checked` đặt trạng thái được chọn đầu tiên. Giá trị và nhãn được escape trước khi chèn.
+Radio cùng `name` tạo thành một nhóm chỉ chọn được một giá trị. `<label>` bọc input nên người dùng có thể bấm vào phần chữ. `checked` đặt trạng thái được chọn đầu tiên. Giá trị và nhãn được escape trước khi chèn; nếu có `extraPrice`, helper thêm phụ phí đã định dạng vào nhãn.
 
 Kết nối sự kiện và tính giá:
 

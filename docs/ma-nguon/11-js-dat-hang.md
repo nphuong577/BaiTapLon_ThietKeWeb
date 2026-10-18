@@ -5,7 +5,6 @@
 | Hàm | Tác dụng |
 |---|---|
 | `setError(id, message = "")` | Cập nhật trạng thái lỗi của một trường giao hàng |
-| `refreshSummary()` | Vẽ lại các dòng giỏ và tổng kết đơn |
 | `updateTotals()` | Tính tạm tính, phí giao, giảm giá và tổng; khóa nút đặt hàng khi giỏ trống |
 | `calculateDiscount(subtotal)` | Dò các luật đã tải; trả số tiền giảm và luật áp dụng; cập nhật lời nhắc trên giao diện |
 | `updatePaymentMethod()` | Hiện/ẩn thông tin chuyển khoản demo và đánh dấu phương thức được chọn |
@@ -34,7 +33,7 @@ let discountRules = [];
 
 `discountRules` bắt đầu rỗng; `init()` sẽ tải luật từ JSON sau. Các phần tử HTML có `id` tương ứng là bắt buộc để JS hoạt động.
 
-Hai helper ngắn xử lý lỗi và đồng bộ phần tóm tắt:
+Helper xử lý lỗi cho từng trường:
 
 ```js
 function setError(id, message = "") {
@@ -43,13 +42,9 @@ function setError(id, message = "") {
   document.querySelector(`[data-error-for="${id}"]`).textContent = message;
 }
 
-function refreshSummary() {
-  renderCart(items, subtotalOutput, updateTotals);
-  updateTotals();
-}
 ```
 
-`setError()` cập nhật cả trạng thái trợ năng `aria-invalid` lẫn chữ báo lỗi cạnh trường. `refreshSummary()` yêu cầu component giỏ dựng lại danh sách món, sau đó tự gọi lại phép tính tổng. Callback `updateTotals` được `renderCart()` gọi lại khi khách thay đổi số lượng hoặc xóa món để phần giá luôn đồng bộ.
+`setError()` cập nhật cả trạng thái trợ năng `aria-invalid` lẫn chữ báo lỗi cạnh trường. Khi khởi tạo, `init()` gọi `renderCart(items, subtotalOutput, updateTotals)` để vẽ giỏ, rồi gọi `updateTotals()` tính tổng. Callback này cũng được gọi lại khi khách thay đổi số lượng hoặc xóa món để phần giá luôn đồng bộ.
 
 ```js
 function updateTotals() {
@@ -216,7 +211,7 @@ form.addEventListener("submit", (event) => {
 | `status` | Trạng thái khởi đầu `received` |
 | `createdAt` | Ngày giờ ISO lúc tạo đơn |
 
-Sau khi lưu: xóa giỏ, ẩn phần form và giới thiệu, điền mã đơn, hiện vùng thành công rồi cuộn tới đó. Các listener thanh toán và nhập điện thoại cập nhật thông tin chuyển khoản; cuối file, `init()` tải luật giảm giá và gọi `refreshSummary()`.
+Sau khi lưu: xóa giỏ, ẩn phần form và giới thiệu, điền mã đơn, hiện vùng thành công rồi cuộn tới đó. Các listener thanh toán và nhập điện thoại cập nhật thông tin chuyển khoản; cuối file, `init()` tải luật giảm giá rồi vẽ lại giỏ và tổng kết.
 
 Khởi tạo trang:
 
@@ -230,7 +225,8 @@ async function init() {
   } catch (error) {
     console.error("Không tải được quy tắc giảm giá", error);
   }
-  refreshSummary();
+  renderCart(items, subtotalOutput, updateTotals);
+  updateTotals();
 }
 
 init();

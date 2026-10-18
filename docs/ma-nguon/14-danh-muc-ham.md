@@ -26,7 +26,7 @@ Trang này là bản tra cứu nhanh. Mở hướng dẫn riêng để xem code 
 | [`products.js`](../../js/pages/products.js) · [giải thích](08-js-thuc-don.md) | `normalize`, `filteredProducts`, `renderProducts`, `renderTabs`, `openCustomizer`, `init` | Tìm kiếm, lọc, dựng món và dialog |
 | [`product.js`](../../js/pages/product.js) · [giải thích](09-js-chi-tiet-mon.md) | `init` | Tìm món theo query `id` |
 | [`auth.js`](../../js/pages/auth.js) · [giải thích](10-js-tai-khoan.md) | `showError`, `showFeedback`, `switchForm`, `showAccount`; handler đăng ký/đăng nhập/đăng xuất và xóa lỗi | Tài khoản demo |
-| [`checkout.js`](../../js/pages/checkout.js) · [giải thích](11-js-dat-hang.md) | `setError`, `refreshSummary`, `updateTotals`, `calculateDiscount`, `updatePaymentMethod`, `fillSession`, handler submit và đổi radio/điện thoại, `init` | Kiểm tra và tạo đơn demo |
+| [`checkout.js`](../../js/pages/checkout.js) · [giải thích](11-js-dat-hang.md) | `setError`, `updateTotals`, `calculateDiscount`, `updatePaymentMethod`, `fillSession`, handler submit và đổi radio/điện thoại, `init` | Kiểm tra và tạo đơn demo |
 
 ### Hàm có tên và hàm callback khác nhau thế nào?
 

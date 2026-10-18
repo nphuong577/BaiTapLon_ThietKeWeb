@@ -22,12 +22,10 @@ Khi thêm category, cần làm đủ hai bước: thêm `{ "id", "name" }` vào 
 {
   "id": "product-slug-khong-trung",
   "name": "Tên món",
-  "category": "chicken",
   "price": 69000,
   "image": "assets/images/products/ten-anh.jpg",
   "description": "Mô tả ngắn, khoảng 15-25 từ.",
   "tag": "Món mới",
-  "featured": false,
   "options": {
     "size": [
       { "id": "regular", "name": "Vừa", "extraPrice": 0 },
@@ -50,15 +48,14 @@ Khi thêm category, cần làm đủ hai bước: thêm `{ "id", "name" }` vào 
 2. Thêm một object mới vào mảng `products`. Object cần đủ các trường:
    - `id`: mã duy nhất, chữ thường, không dấu, không khoảng trắng. Ví dụ `chicken-cheese`.
    - `name`: tên hiển thị của món.
-   - `category`: phải giống `id` category và tên file JSON.
    - `price`: giá gốc dạng số, ví dụ `69000`.
    - `image`: đường dẫn ảnh tính từ thư mục gốc.
    - `description`: mô tả ngắn của sản phẩm.
    - `tag`: nhãn như `Món mới`, `Bán chạy` hoặc `Yêu thích`.
-   - `featured`: `true` hoặc `false`.
    - `options.size`: danh sách kích cỡ; mỗi lựa chọn có `id`, `name`, `extraPrice`.
    - `options.spice`: danh sách độ cay dạng chuỗi; không khai báo cho đồ uống và tráng miệng.
    - `options.drink`: danh sách thức uống; mỗi lựa chọn có `id`, `name`, `extraPrice`.
+   - Danh mục được xác định tự động theo tên file, ví dụ món trong `chicken.json` thuộc danh mục gà rán.
 3. Đặt file ảnh vào `assets/images/`, sau đó kiểm tra đường dẫn `image` có mở được không.
 4. Kiểm tra dấu phẩy JSON: object trước sản phẩm mới phải có dấu phẩy, object cuối cùng không có dấu phẩy thừa.
 5. Chạy website bằng local server và mở `pages/products.html`. Trang chủ tự lấy tối đa hai món đầu tiên trong mỗi category để giới thiệu.

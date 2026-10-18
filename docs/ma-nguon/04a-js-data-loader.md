@@ -58,20 +58,30 @@ Gom sản phẩm từ các file danh mục:
 ```js
 export async function loadCatalog() {
   const { categories } = await getJson("categories.json");
-  const files = categories
-    .filter((category) => category.id !== "all")
-    .map((category) => getJson(`products/${category.id}.json`));
-  const data = await Promise.all(files);
-  return { categories, products: data.flatMap((file) => file.products) };
+  const productCategories = categories.filter((category) => category.id !== "all");
+  const files = await Promise.all(
+    productCategories.map(async (category) => ({
+      categoryId: category.id,
+      products: (await getJson(`products/${category.id}.json`)).products
+    }))
+  );
+
+  const products = [];
+  for (const file of files) {
+    for (const product of file.products) {
+      products.push({ ...product, category: file.categoryId });
+    }
+  }
+
+  return { categories, products };
 }
 ```
 
-- `const { categories } = ...` lấy trường `categories` từ object JSON.
-- `.filter(...)` bỏ danh mục đặc biệt `all`; `.map(...)` tạo danh sách yêu cầu tải.
-- `Promise.all(...)` đợi các file tải song song; thứ tự kết quả vẫn theo danh sách danh mục.
-- Template string `` `products/${category.id}.json` `` tạo tên file, ví dụ `products/chicken.json`.
-- `flatMap(...)` ghép danh sách món từ các file thành một mảng.
-- Kết quả trả về có cả danh sách danh mục lẫn toàn bộ món.
+- Lấy danh sách danh mục và bỏ mục đặc biệt `all`, vì mục này không có file sản phẩm.
+- `Promise.all(...)` tải các file danh mục song song để trang không phải chờ từng file lần lượt.
+- `categoryId` ghi nhớ danh mục của mỗi file. Vì vậy, không cần lặp trường `category` trong từng món JSON.
+- Hai vòng `for` ghép các món lại với nhau. Khi đưa món vào danh sách, mã danh mục được thêm vào để các trang hiện có tiếp tục hoạt động như trước.
+- Kết quả trả về có danh sách danh mục và toàn bộ món.
 
 Tìm một sản phẩm:
 

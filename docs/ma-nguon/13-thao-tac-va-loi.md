@@ -7,7 +7,7 @@
 1. Chọn file phù hợp trong `data/products/`.
 2. Thêm món vào mảng `products`, dùng `id` duy nhất và giữ đủ các trường theo bảng ở trên.
 3. Đặt ảnh trong `assets/images/` và ghi đường dẫn tương đối từ thư mục gốc vào `image`.
-4. Kiểm tra `category` trùng mã danh mục và `options` có cấu trúc hợp lệ.
+4. Kiểm tra món đã nằm trong file đúng danh mục và `options` có cấu trúc hợp lệ.
 5. Nếu muốn dùng món trong khuyến mãi, cập nhật link ở `data/promotions.json`.
 6. Mở trang thực đơn và trang chi tiết để thử món, tùy chỉnh, thêm giỏ và kiểm tra giá.
 
@@ -15,8 +15,8 @@
 
 1. Thêm `{ "id": "new-category", "name": "Tên danh mục" }` vào `data/categories.json`.
 2. Tạo `data/products/new-category.json` với `{ "products": [] }`.
-3. Thêm sản phẩm có `"category": "new-category"` vào file đó.
-4. Đảm bảo mã trong JSON và tên file khớp chính xác, kể cả dấu gạch nối.
+3. Thêm sản phẩm vào file đó. Tên file tự xác định danh mục, không cần thêm trường `category` vào từng món.
+4. Đảm bảo `id` trong `categories.json` và tên file khớp chính xác, kể cả dấu gạch nối.
 
 ### Đổi giá hoặc lựa chọn size/nước
 
@@ -54,7 +54,7 @@ Chạy lệnh tại thư mục gốc `Farmy`, sau đó mở `http://localhost:80
 |---|---|---|
 | Trang hiện “Không tải được dữ liệu” | Mở bằng `file://`, đường dẫn sai hoặc JSON lỗi | Chạy local server; xem tab Network/Console; kiểm tra URL JSON |
 | Ảnh bị trống | Sai chữ hoa/thường hoặc đường dẫn `image` sai | Thử mở đường dẫn ảnh trực tiếp từ gốc website |
-| Món không xuất hiện trong danh mục | `category` không khớp `categories.json`, hoặc món đặt nhầm file | So sánh mã danh mục và tên file |
+| Món không xuất hiện trong danh mục | File món đặt sai tên hoặc danh mục chưa có trong `categories.json` | So sánh `id` danh mục với tên file |
 | Nút đặt món không làm gì | `id`/`data-*` trong HTML bị đổi hoặc JS không nạp | Kiểm tra Console và các selector trong JS |
 | Giá lựa chọn sai | `extraPrice` sai kiểu hoặc quên cộng tiền nâng cấp | Xác nhận trường là số và kiểm tra tổng trong giỏ |
 | Có dữ liệu cũ sau khi sửa | `localStorage` vẫn giữ giỏ/tài khoản/đơn từ lần trước | Dùng DevTools → Application → Local Storage để xóa dữ liệu demo |

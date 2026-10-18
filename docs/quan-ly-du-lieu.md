@@ -1,5 +1,7 @@
 # Hướng dẫn đổi, thêm, sửa và xóa dữ liệu
 
+> Chỉ muốn đổi tên món, giá hoặc ảnh? Bạn chỉ cần sửa file trong `data/`. Không cần sửa JavaScript trong `js/`.
+
 ## 1. Bản đồ các file dữ liệu
 
 | Nội dung | File cần sửa |
@@ -56,11 +58,11 @@ Chỉ sửa trường `name` nếu muốn đổi chữ hiển thị. Không cầ
 
 ### Đổi `id` category
 
-Nếu đổi `id`, phải thực hiện đủ ba việc: đổi `id` trong `categories.json`, đổi tên file sản phẩm, đổi trường `category` của mọi sản phẩm trong file đó.
+Nếu đổi `id`, hãy đổi `id` trong `categories.json` và đổi tên file sản phẩm cho khớp. Không cần sửa từng món trong file.
 
 ### Xóa category
 
-Xóa object trong `categories.json`, sau đó xóa hoặc lưu trữ file sản phẩm tương ứng. Kiểm tra không cò liên kết `?category=<id-cu>` trong HTML hoặc JSON khuyến mãi.
+Xóa object trong `categories.json`, sau đó xóa hoặc lưu trữ file sản phẩm tương ứng. Kiểm tra không còn liên kết `?category=<id-cu>` trong HTML hoặc JSON khuyến mãi.
 
 ## 4. Quản lý sản phẩm
 
@@ -72,12 +74,10 @@ Mở file category phù hợp trong `data/products/` và thêm object:
 {
   "id": "chicken-cheese",
   "name": "Gà rán phô mai",
-  "category": "chicken",
   "price": 75000,
   "image": "assets/images/products/chicken-cheese.jpg",
   "description": "Gà rán giòn phủ sốt phô mai béo nhẹ.",
   "tag": "Món mới",
-  "featured": false,
   "options": {
     "size": [
       { "id": "regular", "name": "1 miếng", "extraPrice": 0 },
@@ -96,15 +96,15 @@ Giải thích trường:
 
 - `id`: dùng trong URL chi tiết sản phẩm và giỏ hàng.
 - `name`: tên hiển thị.
-- `category`: phải khớp category và tên file.
 - `price`: giá gốc chưa gồm phần nâng cấp.
 - `image`: đường dẫn từ thư mục gốc dự án.
 - `description`: mô tả ngắn.
 - `tag`: nhãn trên ảnh sản phẩm.
-- `featured`: dữ liệu dự phòng để đánh dấu món nổi bật.
 - `options.size`: size và tiền cộng thêm.
 - `options.spice`: các mức cay; không dùng cho đồ uống và tráng miệng.
 - `options.drink`: thức uống và tiền cộng thêm.
+
+Tên file xác định danh mục: món trong `chicken.json` tự được xếp vào danh mục `chicken`. Không cần thêm trường `category` vào từng món.
 
 Mỗi nhóm `size` và `drink` phải có ít nhất một lựa chọn. Chỉ khai báo `spice` cho danh mục khác đồ uống và tráng miệng; nếu món không cay, dùng `"spice": ["Không cay"]`. Nếu không có nước, tạo lựa chọn `none` với `extraPrice: 0`.
 
@@ -114,7 +114,7 @@ Mỗi nhóm `size` và `drink` phải có ít nhất một lựa chọn. Chỉ k
 - Đổi tiền nâng size/nước: sửa `extraPrice`.
 - Đổi ảnh: chép ảnh mới vào `assets/images/`, rồi sửa `image`.
 - Đổi tên/mô tả/nhãn: sửa `name`, `description`, `tag`.
-- Chuyển category: chuyển cả object sang file category mới và sửa `category`.
+- Chuyển category: chuyển cả object sang file JSON của category mới.
 
 Không nên đổi `id` của sản phẩm đã được dùng trong khuyến mãi. Nếu bắt buộc đổi, tìm và sửa mọi link dạng `product.html?id=<id-cu>`.
 

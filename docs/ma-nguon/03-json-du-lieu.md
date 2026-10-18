@@ -28,7 +28,7 @@ Hướng dẫn thao tác dữ liệu từng bước có tại [`quan-ly-du-lieu.
 |---|---|
 | `"name": "Gà rán"` | Chuỗi chữ nằm trong dấu ngoặc kép |
 | `"price": 69000` | Số tiền là số, không có dấu ngoặc kép và không có dấu phân cách hàng nghìn |
-| `"featured": true` | Giá trị đúng/sai viết thường, không đặt trong dấu ngoặc kép |
+| `true` | Giá trị đúng/sai viết thường, không đặt trong dấu ngoặc kép |
 | `"maxOrder": null` | Không có giá trị/không giới hạn trên |
 | `{"id":"chicken","name":"Gà"}` | Một object có các trường |
 | `[{"id":"a"},{"id":"b"}]` | Một danh sách (array) chứa nhiều object |
@@ -47,15 +47,15 @@ Mỗi file danh mục có dạng `{ "products": [...] }`. Mỗi phần tử tron
 |---|---:|---|---|
 | `id` | Có | Mã ổn định dùng để tìm món, tạo URL và nhận diện trong giỏ | Duy nhất; nên viết thường, không dấu, cách từ bằng `-` |
 | `name` | Có | Tên món hiển thị | Chữ có dấu được phép |
-| `category` | Có | Mã danh mục của món | Phải khớp `id` trong `categories.json` và tên file |
 | `price` | Có | Giá cơ bản, đơn vị đồng | Viết số nguyên, ví dụ `69000` |
 | `image` | Có | Đường dẫn ảnh tính từ thư mục gốc dự án | Ví dụ `assets/images/.../fried-chicken.jpg` |
 | `description` | Có | Mô tả ngắn | Hiển thị ở thẻ món và phần chi tiết |
 | `tag` | Có | Nhãn như “Bán chạy”, “Món mới” | Hiển thị trên ảnh thẻ |
-| `featured` | Có trong dữ liệu hiện tại | Cờ đánh dấu món nổi bật trong dữ liệu | Trang chủ hiện chọn tối đa hai món đầu tiên mỗi danh mục, không lọc theo cờ này |
 | `options.size` | Có | Các lựa chọn phần/size và giá cộng thêm | Có ít nhất một lựa chọn; lựa chọn đầu tiên được chọn mặc định |
 | `options.spice` | Với món có thể chọn độ cay | Các mức độ cay | Không khai báo cho `drink` và `dessert` |
 | `options.drink` | Có | Lựa chọn nước kèm và giá cộng thêm | Có ít nhất một lựa chọn; món không kèm nước dùng `none` với giá cộng 0 |
+
+Danh mục của món được xác định bằng tên file. Ví dụ, món trong `chicken.json` tự thuộc danh mục `chicken`.
 
 Các lựa chọn `size` và `drink` là object có `id`, `name`, `extraPrice`. `spice` là danh sách chuỗi. Giá tùy chọn được cộng vào giá gốc:
 
@@ -113,12 +113,10 @@ Giải thích:
     {
       "id": "fried-chicken",
       "name": "Gà rán giòn vui vẻ",
-      "category": "chicken",
       "price": 69000,
       "image": "assets/images/NguyenThiThuyDuong_251230832/fried-chicken.jpg",
       "description": "Gà tẩm ướp đậm đà, vỏ giòn rụm và thịt mềm mọng.",
       "tag": "Bán chạy",
-      "featured": true,
       "options": {
         "size": [
           { "id": "regular", "name": "1 miếng", "extraPrice": 0 },
@@ -206,4 +204,3 @@ Ví dụ luật giảm giá:
 ```
 
 Với tạm tính 300.000 đồng, 10% bằng 30.000 đồng, đúng bằng trần nên được giảm 30.000 đồng. Với tạm tính 390.000 đồng cùng luật này, 10% là 39.000 đồng nhưng trần chỉ 30.000 nên chỉ giảm 30.000. Các luật cần xếp tăng dần và không để khoảng giá chồng nhau.
-

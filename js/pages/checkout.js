@@ -19,11 +19,6 @@ function setError(id, message = "") {
   document.querySelector(`[data-error-for="${id}"]`).textContent = message;
 }
 
-function refreshSummary() {
-  renderCart(items, subtotalOutput, updateTotals);
-  updateTotals();
-}
-
 function updateTotals() {
   const subtotal = cartSubtotal();
   const deliveryFee = subtotal === 0 || subtotal >= 250000 ? 0 : 25000;
@@ -136,7 +131,8 @@ async function init() {
   } catch (error) {
     console.error("Không tải được quy tắc giảm giá", error);
   }
-  refreshSummary();
+  renderCart(items, subtotalOutput, updateTotals);
+  updateTotals();
 }
 
 init();

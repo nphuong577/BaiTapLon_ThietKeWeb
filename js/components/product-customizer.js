@@ -3,15 +3,18 @@ import { assetUrl, escapeHtml, formatPrice } from "../core/utils.js";
 
 export function customizerMarkup(product, includeImage = true) {
   const supportsSpice = !["drink", "dessert"].includes(product.category);
+  const supportsDrinkChoice = product.category !== "drink";
   const sizes = product.options.size.map((option, index) =>
     optionPill("size", option.id, option.name, index === 0, option.extraPrice)
   ).join("");
   const spices = supportsSpice
     ? product.options.spice.map((name, index) => optionPill("spice", name, name, index === 0)).join("")
     : "";
-  const drinks = product.options.drink.map((option, index) =>
-    optionPill("drink", option.id, option.name, index === 0, option.extraPrice)
-  ).join("");
+  const drinks = supportsDrinkChoice
+    ? product.options.drink.map((option, index) =>
+      optionPill("drink", option.id, option.name, index === 0, option.extraPrice)
+    ).join("")
+    : "";
   const image = includeImage
     ? `<img src="${assetUrl(product.image)}" alt="${escapeHtml(product.name)}" />`
     : "";
@@ -23,7 +26,7 @@ export function customizerMarkup(product, includeImage = true) {
       <strong class="price">Từ ${formatPrice(product.price)}</strong>
       <div class="option-group"><strong>Chọn kích cỡ</strong><div class="option-list">${sizes}</div></div>
       ${supportsSpice ? `<div class="option-group"><strong>Chọn độ cay</strong><div class="option-list">${spices}</div></div>` : ""}
-      <div class="option-group"><strong>Chọn thức uống</strong><div class="option-list">${drinks}</div></div>
+      ${supportsDrinkChoice ? `<div class="option-group"><strong>Chọn thức uống</strong><div class="option-list">${drinks}</div></div>` : ""}
       <div class="option-group"><strong>Số lượng</strong><div class="quantity-control">
         <button type="button" data-quantity-change="-1">−</button><b data-quantity>1</b>
         <button type="button" data-quantity-change="1">+</button>
@@ -47,8 +50,10 @@ export function bindCustomizer(root, product, onAdded) {
   const selected = (name) => panel.querySelector(`input[name="${name}"]:checked`)?.value;
   const getPricing = () => {
     const size = product.options.size.find((option) => option.id === selected("size")) || product.options.size[0];
-    const drink = product.options.drink.find((option) => option.id === selected("drink")) || product.options.drink[0];
-    return { size, drink, unitPrice: product.price + size.extraPrice + drink.extraPrice };
+    const drink = product.category === "drink"
+      ? undefined
+      : product.options.drink.find((option) => option.id === selected("drink")) || product.options.drink[0];
+    return { size, drink, unitPrice: product.price + size.extraPrice + (drink?.extraPrice ?? 0) };
   };
   const refresh = () => {
     panel.querySelector("[data-quantity]").textContent = String(quantity);
@@ -61,7 +66,7 @@ export function bindCustomizer(root, product, onAdded) {
   }));
   panel.querySelector("[data-add-customized]").addEventListener("click", () => {
     const { size, drink, unitPrice } = getPricing();
-    addCartItem({ productId: product.id, name: product.name, image: product.image, category: product.category, sizeId: size.id, sizeName: size.name, spice: selected("spice"), drinkId: drink.id, drinkName: drink.name, unitPrice, quantity });
+    addCartItem({ productId: product.id, name: product.name, image: product.image, category: product.category, sizeId: size.id, sizeName: size.name, spice: selected("spice"), drinkId: drink?.id ?? null, drinkName: drink?.name ?? null, unitPrice, quantity });
     onAdded?.();
   });
 }

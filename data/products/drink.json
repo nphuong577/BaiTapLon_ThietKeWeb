@@ -19,15 +19,55 @@
             "name": "Lớn",
             "extraPrice": 10000
           }
-        ],
-        "drink": [
-          {
-            "id": "none",
-            "name": "Không chọn",
-            "extraPrice": 0
-          }
+        ]
+    
+      }
+    },
+    {
+      "id":"cola",
+      "name": "Coca-Cola",
+      "price": 30000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/coca-cola.jpg",
+      "description": "Thức uống có ga, vị ngọt thanh, giúp giải khát hiệu quả.",
+      "tag":"Thức uống",
+      "options": {
+        "size": [
+        {
+          "id": "none",
+          "name":"Vừa",
+          "extraPrice": 0
+        },
+        {
+          "id": "large",
+          "name": "Lớn",
+          "extraPrice":10000
+        }
+        ]
+      }
+    },
+
+    {
+      "id":"pepsi",
+      "name": "Pepsi",
+      "price": 30000,
+      "image": "assets/images/NguyenThiThuyDuong_251230832/pepsi.jpg",
+      "description": "Thức uống có ga, vị ngọt thanh, giúp giải khát hiệu quả.",
+      "tag":"Thức uống",
+      "options": {
+        "size": [
+        {
+          "id": "none",
+          "name":"Vừa",
+          "extraPrice": 0
+        },
+        {
+          "id": "large",
+          "name": "Lớn",
+          "extraPrice":10000
+        }
         ]
       }
     }
+
   ]
 }

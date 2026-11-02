@@ -1,4 +1,4 @@
-.product-page {
+  .product-page {
   min-height: calc(100vh - 84px);
   padding: 34px 24px 90px;
   background: radial-gradient(circle at 10% 5%, #fff0bd 0, transparent 25%), #fffaf2;

@@ -12,13 +12,25 @@
     <header class="site-header">
       <a class="brand" href="../index.html"><img src="../assets/images/BuiThiNgocPhuong_251230944/header_image/page_logo.png" alt="" /><span>FARMY<small>Giòn vui mỗi ngày</small></span></a>
       <button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
-      <nav class="main-nav"><a href="../index.html">Trang chủ</a><a href="products.html" aria-current="page">Sản phẩm</a><a href="../index.html#offers">Khuyến mãi</a><a href="about.html">Về FARMY</a></nav>
-      <div class="header-actions"><a class="account-link" href="auth.html">Tài khoản</a><button class="cart-button" id="open-cart" type="button">🛒 <span>Giỏ hàng</span><b class="cart-badge" data-cart-count>0</b></button></div>
+      <nav class="main-nav">
+        <a href="../index.html">Trang chủ</a>
+        <a href="products.html" aria-current="page">Sản phẩm</a>
+        <a href="../index.html#offers">Khuyến mãi</a>
+        <a href="about.html">Về FARMY</a>
+      </nav>
+      <div class="header-actions">
+        <a class="account-link" href="auth.html">Tài khoản</a><button class="cart-button" id="open-cart" type="button">🛒 <span>Giỏ hàng</span><b class="cart-badge" data-cart-count>0</b></button></div>
     </header>
     <main>
       <section class="products-hero"><div><span class="eyebrow">Thực đơn FARMY</span><h1>Chọn món bạn thích</h1><p>Tìm kiếm, lọc theo danh mục và tùy chỉnh từng món trước khi thêm vào giỏ.</p></div></section>
       <section class="products-main" id="product-list">
-        <div class="catalog-toolbar"><label class="catalog-search"><span aria-hidden="true">⌕</span><span class="sr-only">Tìm sản phẩm</span><input id="search-input" type="search" placeholder="Tìm tên món, combo..." autocomplete="off" /></label><div class="category-tabs" id="category-tabs" role="group" aria-label="Lọc theo danh mục"></div></div>
+        <div class="catalog-toolbar">
+          <label class="catalog-search">
+          <span aria-hidden="true">⌕</span>
+          <span class="sr-only">Tìm sản phẩm</span>
+          <input id="search-input" type="search" placeholder="Tìm tên món, combo..." autocomplete="off" /></label>
+          <div class="category-tabs" id="category-tabs" role="group" aria-label="Lọc theo danh mục"></div>
+        </div>
         <div class="catalog-meta"><h2 id="catalog-title">Tất cả sản phẩm</h2><p id="result-count" aria-live="polite"></p></div>
         <div class="product-grid" id="product-grid"><div class="loading-card">Đang tải thực đơn...</div></div>
       </section>
